@@ -1,0 +1,288 @@
+{
+  "name": "files/print.rinha",
+  "expression": {
+    "kind": "Let",
+    "name": {
+      "text": "printable",
+      "location": {
+        "start": 4,
+        "end": 13,
+        "filename": "files/print.rinha"
+      }
+    },
+    "value": {
+      "kind": "Function",
+      "parameters": [
+        {
+          "text": "message",
+          "location": {
+            "start": 19,
+            "end": 26,
+            "filename": "files/print.rinha"
+          }
+        }
+      ],
+      "value": {
+        "kind": "Print",
+        "value": {
+          "kind": "Var",
+          "text": "message",
+          "location": {
+            "start": 43,
+            "end": 50,
+            "filename": "files/print.rinha"
+          }
+        },
+        "location": {
+          "start": 37,
+          "end": 51,
+          "filename": "files/print.rinha"
+        }
+      },
+      "location": {
+        "start": 16,
+        "end": 53,
+        "filename": "files/print.rinha"
+      }
+    },
+    "next": {
+      "kind": "Let",
+      "name": {
+        "text": "evaluate_if",
+        "location": {
+          "start": 60,
+          "end": 71,
+          "filename": "files/print.rinha"
+        }
+      },
+      "value": {
+        "kind": "Function",
+        "parameters": [
+          {
+            "text": "a",
+            "location": {
+              "start": 78,
+              "end": 79,
+              "filename": "files/print.rinha"
+            }
+          },
+          {
+            "text": "b",
+            "location": {
+              "start": 81,
+              "end": 82,
+              "filename": "files/print.rinha"
+            }
+          }
+        ],
+        "value": {
+          "kind": "If",
+          "condition": {
+            "kind": "Binary",
+            "lhs": {
+              "kind": "Var",
+              "text": "a",
+              "location": {
+                "start": 97,
+                "end": 98,
+                "filename": "files/print.rinha"
+              }
+            },
+            "op": "Gt",
+            "rhs": {
+              "kind": "Var",
+              "text": "b",
+              "location": {
+                "start": 101,
+                "end": 102,
+                "filename": "files/print.rinha"
+              }
+            },
+            "location": {
+              "start": 97,
+              "end": 102,
+              "filename": "files/print.rinha"
+            }
+          },
+          "then": {
+            "kind": "Let",
+            "name": {
+              "text": "q",
+              "location": {
+                "start": 122,
+                "end": 123,
+                "filename": "files/print.rinha"
+              }
+            },
+            "value": {
+              "kind": "Int",
+              "value": 2,
+              "location": {
+                "start": 126,
+                "end": 127,
+                "filename": "files/print.rinha"
+              }
+            },
+            "next": {
+              "kind": "Call",
+              "callee": {
+                "kind": "Var",
+                "text": "printable",
+                "location": {
+                  "start": 137,
+                  "end": 146,
+                  "filename": "files/print.rinha"
+                }
+              },
+              "arguments": [
+                {
+                  "kind": "Str",
+                  "value": "is higher",
+                  "location": {
+                    "start": 147,
+                    "end": 158,
+                    "filename": "files/print.rinha"
+                  }
+                }
+              ],
+              "location": {
+                "start": 137,
+                "end": 159,
+                "filename": "files/print.rinha"
+              }
+            },
+            "location": {
+              "start": 118,
+              "end": 159,
+              "filename": "files/print.rinha"
+            }
+          },
+          "otherwise": {
+            "kind": "Let",
+            "name": {
+              "text": "p",
+              "location": {
+                "start": 189,
+                "end": 190,
+                "filename": "files/print.rinha"
+              }
+            },
+            "value": {
+              "kind": "Int",
+              "value": 1,
+              "location": {
+                "start": 193,
+                "end": 194,
+                "filename": "files/print.rinha"
+              }
+            },
+            "next": {
+              "kind": "Call",
+              "callee": {
+                "kind": "Var",
+                "text": "printable",
+                "location": {
+                  "start": 204,
+                  "end": 213,
+                  "filename": "files/print.rinha"
+                }
+              },
+              "arguments": [
+                {
+                  "kind": "Str",
+                  "value": "is lesser",
+                  "location": {
+                    "start": 214,
+                    "end": 225,
+                    "filename": "files/print.rinha"
+                  }
+                }
+              ],
+              "location": {
+                "start": 204,
+                "end": 226,
+                "filename": "files/print.rinha"
+              }
+            },
+            "location": {
+              "start": 185,
+              "end": 226,
+              "filename": "files/print.rinha"
+            }
+          },
+          "location": {
+            "start": 93,
+            "end": 232,
+            "filename": "files/print.rinha"
+          }
+        },
+        "location": {
+          "start": 74,
+          "end": 234,
+          "filename": "files/print.rinha"
+        }
+      },
+      "next": {
+        "kind": "Print",
+        "value": {
+          "kind": "Call",
+          "callee": {
+            "kind": "Var",
+            "text": "evaluate_if",
+            "location": {
+              "start": 243,
+              "end": 254,
+              "filename": "files/print.rinha"
+            }
+          },
+          "arguments": [
+            {
+              "kind": "Int",
+              "value": 2,
+              "location": {
+                "start": 255,
+                "end": 256,
+                "filename": "files/print.rinha"
+              }
+            },
+            {
+              "kind": "Int",
+              "value": 10,
+              "location": {
+                "start": 258,
+                "end": 260,
+                "filename": "files/print.rinha"
+              }
+            }
+          ],
+          "location": {
+            "start": 243,
+            "end": 261,
+            "filename": "files/print.rinha"
+          }
+        },
+        "location": {
+          "start": 237,
+          "end": 262,
+          "filename": "files/print.rinha"
+        }
+      },
+      "location": {
+        "start": 56,
+        "end": 262,
+        "filename": "files/print.rinha"
+      }
+    },
+    "location": {
+      "start": 0,
+      "end": 262,
+      "filename": "files/print.rinha"
+    }
+  },
+  "location": {
+    "start": 0,
+    "end": 262,
+    "filename": "files/print.rinha"
+  },
+  "rinha_code": "let printable = fn(message) => {\n    print(message)\n};\n\nlet evaluate_if = fn (a, b) => {\n    if (a > b)\n    {\n        let q = 2;\n        printable(\"is higher\")\n    }\n    else {\n        let p = 1;\n        printable(\"is lesser\")\n    }\n};\n\nprint(evaluate_if(2, 10))"
+}

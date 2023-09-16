@@ -1,0 +1,44 @@
+{
+  "rinhacode": "print(666+666)",
+  "name": "files/print.rinha",
+  "expression": {
+    "kind": "Print",
+    "value": {
+      "kind": "Binary",
+      "lhs": {
+        "kind": "Int",
+        "value": 666,
+        "location": {
+          "start": 6,
+          "end": 9,
+          "filename": "files/print.rinha"
+        }
+      },
+      "op": "Add",
+      "rhs": {
+        "kind": "Int",
+        "value": 666,
+        "location": {
+          "start": 10,
+          "end": 13,
+          "filename": "files/print.rinha"
+        }
+      },
+      "location": {
+        "start": 6,
+        "end": 13,
+        "filename": "files/print.rinha"
+      }
+    },
+    "location": {
+      "start": 0,
+      "end": 14,
+      "filename": "files/print.rinha"
+    }
+  },
+  "location": {
+    "start": 0,
+    "end": 14,
+    "filename": "files/print.rinha"
+  }
+}

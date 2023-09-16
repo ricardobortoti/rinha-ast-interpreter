@@ -1,0 +1,62 @@
+{
+  "rinhacode" : "print(\"hello\"+\" \"+\"world\")",
+  "name": "files/print.rinha",
+  "expression": {
+    "kind": "Print",
+    "value": {
+      "kind": "Binary",
+      "lhs": {
+        "kind": "Str",
+        "value": "hello",
+        "location": {
+          "start": 6,
+          "end": 13,
+          "filename": "files/print.rinha"
+        }
+      },
+      "op": "Add",
+      "rhs": {
+        "kind": "Binary",
+        "lhs": {
+          "kind": "Str",
+          "value": " ",
+          "location": {
+            "start": 14,
+            "end": 17,
+            "filename": "files/print.rinha"
+          }
+        },
+        "op": "Add",
+        "rhs": {
+          "kind": "Str",
+          "value": "world",
+          "location": {
+            "start": 18,
+            "end": 25,
+            "filename": "files/print.rinha"
+          }
+        },
+        "location": {
+          "start": 14,
+          "end": 25,
+          "filename": "files/print.rinha"
+        }
+      },
+      "location": {
+        "start": 6,
+        "end": 25,
+        "filename": "files/print.rinha"
+      }
+    },
+    "location": {
+      "start": 0,
+      "end": 26,
+      "filename": "files/print.rinha"
+    }
+  },
+  "location": {
+    "start": 0,
+    "end": 26,
+    "filename": "files/print.rinha"
+  }
+}

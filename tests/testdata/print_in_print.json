@@ -1,0 +1,33 @@
+{
+  "name": "files/print.rinha",
+  "expression": {
+    "kind": "Print",
+    "value": {
+      "kind": "Print",
+      "value": {
+        "kind": "Str",
+        "value": "hello world",
+        "location": {
+          "start": 12,
+          "end": 25,
+          "filename": "files/print.rinha"
+        }
+      },
+      "location": {
+        "start": 6,
+        "end": 26,
+        "filename": "files/print.rinha"
+      }
+    },
+    "location": {
+      "start": 0,
+      "end": 27,
+      "filename": "files/print.rinha"
+    }
+  },
+  "location": {
+    "start": 0,
+    "end": 27,
+    "filename": "files/print.rinha"
+  }
+}
