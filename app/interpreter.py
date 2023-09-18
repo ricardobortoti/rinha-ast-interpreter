@@ -60,6 +60,7 @@ class Interpreter:
 
     def eval_call(self, term):
         logging.debug("calling function")
+        caller = self.call_stack.peek().name
         callee = term['callee']['text']
         function_params = self.call_stack.peek()[callee]['parameters']
         arguments = term['arguments']
@@ -68,7 +69,7 @@ class Interpreter:
         ar = ActivationRecord(
             name=callee,
             type=ARType.FUNCTION_SCOPE,
-            nesting_level=self.call_stack.peek().nesting_level+1
+            nesting_level=self.call_stack.peek().nesting_level + 1
         )
 
         for key, value in context.items():

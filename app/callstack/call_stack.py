@@ -7,6 +7,7 @@ class CallStack:
 
     def push(self, ar):
         if self._records.__len__() > 0:
+
             ar.prev = self.peek()
         self._records.append(ar)
 

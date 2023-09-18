@@ -1,5 +1,7 @@
 from enum import Enum
 
+from app.callstack.stack import Stack
+
 
 class ARType(Enum):
     GLOBAL_SCOPE = 'GLOBAL_SCOPE'
@@ -11,19 +13,19 @@ class ActivationRecord:
         self.name = name
         self.type = type
         self.nesting_level = nesting_level
-        self.members = {}
+        self.members = Stack()
 
     def __setitem__(self, key, value):
-        self.members[key] = value
+        self.members.peek()[key] = value
 
     def __getitem__(self, key):
-        if None is self.members.get(key):
+        if None is self.members.peek().get(key):
             ar = self.prev
             return ar[key]
-        return self.members[key]
+        return self.members.peek()[key]
 
     def get(self, key):
-        return self.members.get(key)
+        return self.members.peek().get(key)
 
     def __str__(self):
         lines = [
