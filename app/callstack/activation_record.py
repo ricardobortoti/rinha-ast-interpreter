@@ -17,9 +17,9 @@ class ActivationRecord:
         self.members[key] = value
 
     def __getitem__(self, key):
-        if None is self.members.get(key):
-            ar = self.prev
-            return ar[key]
+        # if None is self.members.get(key):
+        #     ar = self.prev
+        #     return ar[key]
         return self.members[key]
 
     def get(self, key):
