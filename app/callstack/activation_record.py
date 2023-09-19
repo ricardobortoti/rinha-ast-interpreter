@@ -7,23 +7,24 @@ class ARType(Enum):
 
 
 class ActivationRecord:
-    def __init__(self, name, type, nesting_level):
+
+    def __init__(self, name, type, nesting_level, members=None):
         self.name = name
         self.type = type
         self.nesting_level = nesting_level
-        self.members = {}
+        self.members = self.members = members if members is not None else {}
 
     def __setitem__(self, key, value):
         self.members[key] = value
 
     def __getitem__(self, key):
-        # if None is self.members.get(key):
-        #     ar = self.prev
-        #     return ar[key]
         return self.members[key]
 
     def get(self, key):
         return self.members.get(key)
+
+    def get_members(self):
+        return self.members
 
     def __str__(self):
         lines = [
