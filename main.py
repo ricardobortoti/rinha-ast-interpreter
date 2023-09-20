@@ -5,7 +5,7 @@ import time
 from app.interpreter import Interpreter
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.ERROR)
+    # logging.basicConfig(level=logging.ERROR)
     interpreter = Interpreter()
     with open('test_files/scratch.ast.json', 'r') as file:
         ast = json.load(file)

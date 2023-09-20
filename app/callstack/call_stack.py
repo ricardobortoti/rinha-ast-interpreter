@@ -4,17 +4,24 @@
 class CallStack:
     def __init__(self):
         self._records = []
+        self._current_activation_record = None
 
     def push(self, ar):
-        if self._records.__len__() > 0:
-            ar.prev = self.peek()
+        self._current_activation_record = ar
         self._records.append(ar)
 
     def pop(self):
-        return self._records.pop()
+        popped = self._records.pop()
+
+        if self._records.__len__() > 0:
+            self._current_activation_record = self._records[-1]
+        else:
+            None
+
+        return popped
 
     def peek(self):
-        return self._records[-1]
+        return self._current_activation_record
 
     def __str__(self):
         s = '\n'.join(repr(ar) for ar in reversed(self._records))
