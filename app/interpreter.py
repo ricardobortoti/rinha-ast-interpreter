@@ -5,41 +5,33 @@ from app.binary.binaryops import proc_binary
 
 class Interpreter:
     def __init__(self):
-        # logging.basicConfig(level=logging.ERROR)
         self.call_stack = CallStack()
 
     def eval_let(self, term):
-        # logging.debug(f"Evaluating let variable name {term['name']['text']}")
         result = self.eval_term(term['value'])
         if result is not None:
             ar = self.call_stack.peek()
             ar[term['name']['text']] = result
 
     def eval_print(self, term):
-        # logging.debug("Evaluating print")
         result = self.eval_term(term['value'])
         print(result)
         return result
 
     def eval_var(self, term):
-        # logging.debug("Evaluating var")
         ar = self.call_stack.peek()
         return ar[term['text']]
 
     def eval_str(self, term):
-        # logging.debug("Evaluating str")
         return term['value']
 
     def eval_int(self, term):
-        # logging.debug("Evaluating int")
         return term['value']
 
     def eval_bool(self, term):
-        # logging.debug("Evaluating bool")
         return term['value']
 
     def eval_binary(self, term):
-        # logging.debug("Evaluating binary")
         lhs = self.eval_term(term['lhs'])
         rhs = self.eval_term(term['rhs'])
         op = term['op']
@@ -47,11 +39,9 @@ class Interpreter:
         return proc_binary(op, lhs, rhs)
 
     def eval_function(self, term):
-        # logging.debug("Evaluating function : store symbolic rep")
         return term
 
     def eval_if(self, term):
-        # logging.debug("Evaluating If")
         if self.eval_term(term['condition']):
             return self.eval_term(term['then'])
         else:

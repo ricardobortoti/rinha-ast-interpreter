@@ -1,5 +1,4 @@
 import json
-import logging
 import time
 
 from app.interpreter import Interpreter
