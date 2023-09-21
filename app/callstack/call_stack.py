@@ -5,6 +5,7 @@ class CallStack:
     def __init__(self):
         self._records = []
         self._current_activation_record = None
+        self.function_result_cache = {}
 
     def push(self, ar):
         self._current_activation_record = ar

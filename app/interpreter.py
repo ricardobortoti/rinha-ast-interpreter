@@ -1,6 +1,9 @@
+from memory_profiler import profile
+
 from app.callstack.call_stack import CallStack
 from app.callstack.activation_record import ActivationRecord, ARType
 from app.binary.binaryops import proc_binary
+from app.function_optimizer.memoizer import try_memoize, try_recover_memoization
 
 
 class Interpreter:
@@ -48,31 +51,43 @@ class Interpreter:
             return self.eval_term(term['otherwise'])
 
     def eval_call(self, term):
-        # logging.debug("calling function")
         callee = term['callee']['text']
         function_params = self.call_stack.peek()[callee]['parameters']
         arguments = term['arguments']
-        context = {param['text']: self.eval_term(arg) for param, arg in zip(function_params, arguments)}
 
+        # Create a new ActivationRecord for the function call
         ar = ActivationRecord(
             name=callee,
             type=ARType.FUNCTION_SCOPE,
-            nesting_level=self.call_stack.peek().nesting_level+1,
+            nesting_level=self.call_stack.peek().nesting_level + 1,
             members=self.call_stack.peek().get_members().copy(),
         )
 
-        for key, value in context.items():
-            ar[key] = value
+        # Bind function parameters to arguments in the new ActivationRecord
+        for param, arg in zip(function_params, arguments):
+            ar[param['text']] = self.eval_term(arg)
 
+        # Push the new ActivationRecord onto the call stack
         self.call_stack.push(ar)
+
+        # Perform the function call and capture the result
         result = self.function_call(callee, self.call_stack.peek())
+
+        # Pop the ActivationRecord from the call stack after the function call
         self.call_stack.pop()
 
         return result
 
     def function_call(self, callee, stack_frame):
-        return self.eval_term(stack_frame[callee]['value'])
+        result = try_recover_memoization(self, callee, stack_frame)
+        if result is not None:
+            return result
+        else:
+            result = self.eval_term(stack_frame[callee]['value'])
+            try_memoize(self, callee, stack_frame, result)
+            return result
 
+    # @profile
     def eval_term(self, term):
         evaluators = {
             "Let": self.eval_let,
