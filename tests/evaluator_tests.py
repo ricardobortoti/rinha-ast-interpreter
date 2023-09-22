@@ -74,6 +74,16 @@ class EvaluatorTests(unittest.TestCase):
 
         self.assertEqual("is lesser\nis lesser\n", captured_output)
 
+    def test_recursive_calls(self):
+        ast = AstLoader.load_json_file("testdata/recursive_function.json")
+        interpreter = Interpreter()
+
+        with StdoutCapture() as capture:
+            interpreter.interpret(ast)
+        captured_output = capture.get_output()
+
+        self.assertEqual("75025\n", captured_output)
+
 
 if __name__ == '__main__':
     unittest.main()

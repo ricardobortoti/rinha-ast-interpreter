@@ -9,6 +9,7 @@ class Operation(Enum):
     GREATER = 'Gt'
     EQUAL = 'Eq'
     LESSER = 'Lt'
+    OR = 'Or'
 
 
 def add(lhs, rhs):
@@ -34,6 +35,10 @@ def lt(lhs, rhs):
     return lhs < rhs
 
 
+def bin_or(lhs, rhs):
+    return lhs or rhs
+
+
 def proc_binary(op, lhs, rhs):
     if op == Operation.ADD.value:
         return add(lhs, rhs)
@@ -45,5 +50,7 @@ def proc_binary(op, lhs, rhs):
         return lt(lhs, rhs)
     if op == Operation.SUBTRACT.value:
         return sub(lhs, rhs)
+    if op == Operation.OR.value:
+        return bin_or(lhs, rhs)
     else:
         raise ValueError("Unsupported operation: {}".format(op))
