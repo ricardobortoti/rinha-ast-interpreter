@@ -1,3 +1,5 @@
+import sys
+
 from memory_profiler import profile
 
 from app.callstack.call_stack import CallStack
@@ -9,6 +11,8 @@ from app.function_optimizer.memoizer import try_memoize, try_recover_memoization
 class Interpreter:
     def __init__(self):
         self.call_stack = CallStack()
+        new_limit = 1000000
+        sys.setrecursionlimit(new_limit)
 
     def eval_let(self, term):
         result = self.eval_term(term['value'])
@@ -87,7 +91,6 @@ class Interpreter:
             try_memoize(self, callee, stack_frame, result)
             return result
 
-    # @profile
     def eval_term(self, term):
         evaluators = {
             "Let": self.eval_let,
